@@ -1,28 +1,34 @@
-from tkinter import *
-
+from tkinter import * #ליסא הכל מהפונקציה
 def button_clicked():
-    username = username_entry.get()
+    user_name = username_entry.get()
     age = age_entry.get()
-    print(f"Username: {username}, Age: {age}")
+    textinfo = text.get("1.0", "end-1c")
+    print(f"User Name : {user_name}\n Age : {age}")
+    print(f"text info {textinfo}")
+
 
 window = Tk()
-window.title("User Input")
-window.minsize(width=500, height=300)
+window.title("User Details")#כותרת
+window.minsize(width=500, height=300) #שינוי גודל חלון
 
-# Create username label and input field
-username_label = Label(text="Username", font=("Ariel", 18, "bold"))
-username_label.pack()
-username_entry = Entry(width=20)
+
+my_label = Label(text="Enter user name", font=("Ariel", 18, "bold"))
+my_label.pack() #להציג בתוך החלון הגרפי
+username_entry = Entry()
 username_entry.pack()
 
-# Create age label and input field
-age_label = Label(text="Age", font=("Ariel", 18, "bold"))
-age_label.pack()
-age_entry = Entry(width=20)
+age_label = Label(text="Enter user Age", font=("Ariel", 18, "bold"))
+age_label.pack() #להציג בתוך החלון הגרפי
+
+age_entry = Entry()
 age_entry.pack()
 
-# Create submit button
-submit_button = Button(text="Submit", command=button_clicked)
-submit_button.pack()
+button = Button(text="Submit", command=button_clicked)#יצירת כפתור
+button.pack()#מיקום הכפתור בחלון
 
-window.mainloop()
+text = Text(height=5, width=20)
+text.focus()
+text.pack()
+
+window.mainloop() # יציג לנו את החלון על הצג
+button_clicked()
