@@ -1,28 +1,28 @@
-from tkinter import * #ליסא הכל מהפונקציה
-window = Tk()
-window.title("My first Gui")#כותרת
-window.minsize(width=500, height=300) #שינוי גודל חלון
+from tkinter import *
 
-my_label = Label(text="I am A Label", font=("Ariel", 18, "bold"))
-my_label.pack() #להציג בתוך החלון הגרפי
-my_label.config(text="New Text")#יצית תוית
 def button_clicked():
-    print("I got clicked")
-    new_text = input.get()
-    my_label.config(text=new_text)
-button = Button(text="Click me", command=button_clicked)#יצירת כפתור
-button.pack()#מיקום הכפתור בחלון
+    username = username_entry.get()
+    age = age_entry.get()
+    print(f"Username: {username}, Age: {age}")
 
-input = Entry(width=20)#יצירת שדה קלט
-input.pack()#מיקום שדה הקלט בחלון
-def scale_used(a):
-    print(a)
-scale = Scale(from_=0, to=100, command=scale_used)
-scale.pack()
+window = Tk()
+window.title("User Input")
+window.minsize(width=500, height=300)
 
-def spinbox():
-    print(spinbox)
-spinbox = Spinbox(from_=0, to=120, width=5, command=scale_used)
-spinbox.pack()
-window.mainloop() # יציג לנו את החלון על הצג
-print(input.get())
+# Create username label and input field
+username_label = Label(text="Username", font=("Ariel", 18, "bold"))
+username_label.pack()
+username_entry = Entry(width=20)
+username_entry.pack()
+
+# Create age label and input field
+age_label = Label(text="Age", font=("Ariel", 18, "bold"))
+age_label.pack()
+age_entry = Entry(width=20)
+age_entry.pack()
+
+# Create submit button
+submit_button = Button(text="Submit", command=button_clicked)
+submit_button.pack()
+
+window.mainloop()
